@@ -9,7 +9,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -40,7 +40,7 @@
       sessionSampleRate: 100,
       sessionReplaySampleRate: 100,
       trackUserInteractions: true,
-      trackSessionAcrossSubdomains: true,
+      //trackSessionAcrossSubdomains: true,
       usePartitionedCrossSiteSessionCookie: true,
       trackResources: true,
       trackLongTasks: true,
@@ -50,9 +50,18 @@
 </head>
 
 <body>
+  <div>
   <h1>My Parent Site</h1>
+  <br>
   <button>This Button Does Nothing</button>
-  <iframe src="https://www.nick-ramsay.com/random-six-digit-generator" title="Nick Ramsay Website"></iframe>
+  <br>
+  <p>The iframe to the right displays the <a href="https://www.nick-ramsay.com/random-six-digit-generator" target="_blank">https://www.nick-ramsay.com/random-six-digit-generator</a> page.</p>
+  <p>This parent page, and the activity in the <code>iframe</code>, are getting monitored as a single RUM session. This is because the <code>usePartitionedCrossSiteSessionCookie</code> and <code>trackSessionAcrossSubdomains</code> are both set to <code>true</code>.</p>
+  <br>
+</div>
+  
+    <iframe src="https://www.nick-ramsay.com/random-six-digit-generator" title="Nick Ramsay Website"></iframe>
+  
 </body>
 
 </html>
